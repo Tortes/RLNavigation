@@ -1,0 +1,16 @@
+Epoch #18: test_reward: -199.154843, best_reward: -112.681949 in #14            
+Epoch #19: 1216it [14:32,  1.40it/s, len=122.38, loss=2312.639845, loss/clip=673
+.610577, loss/ent=0.040929, loss/vf=3278.058541, n/ep=100.00, n/st=12238.00, rew
+Epoch #19: 1216it [14:32,  1.40it/s, len=133.44, loss=7361.235378, loss/clip=399
+.785718, loss/ent=0.163866, loss/vf=13922.899344, n/ep=100.00, n/st=13344.00, re
+Epoch #19: 1216it [14:32,  1.39it/s, len=133.44, loss=7361.235378, loss/clip=399
+.785718, loss/ent=0.163866, loss/vf=13922.899344, n/ep=100.00, n/st=13344.00, re
+w=-575.60, v/ep=0.38, v/st=50.60]                                               
+Epoch #19: test_reward: -246.460375, best_reward: -112.681949 in #14            
+Epoch #20: 1204it [14:09,  1.42it/s, len=127.72, loss=1563.190008, loss/clip=23.407767, loss/ent=0.009562, loss/vf=3079.564488, n/ep=100.00, n/st=12772.00, rew=Epoch #20: 1204it [14:09,  1.42it/s, len=128.78, loss=1742.831141, loss/clip=21.731069, loss/ent=0.178226, loss/vf=3442.200143, n/ep=100.00, n/st=12878.00, rew=Epoch #20: 1204it [14:09,  1.42it/s, len=128.78, loss=1742.831141, loss/clip=21.731069, loss/ent=0.178226, loss/vf=3442.200143, n/ep=100.00, n/st=12878.00, rew=-309.82, v/ep=0.40, v/st=51.50]
+Epoch #20: test_reward: -753.795099, best_reward: -112.681949 in #14
+Epoch #21: 1250it [19:48,  1.03it/s, len=265.96, loss=1814.993213, loss/clip=978.781574, loss/ent=0.085672, loss/vf=1672.423276, n/ep=100.00, n/st=26596.00, rewEpoch #21: 1250it [19:48,  1.03it/s, len=199.55, loss=13474.315977, loss/clip=8146.782727, loss/ent=0.060996, loss/vf=10655.066524, n/ep=100.00, n/st=19955.00, Epoch #21: 1250it [19:48,  1.05it/s, len=199.55, loss=13474.315977, loss/clip=8146.782727, loss/ent=0.060996, loss/vf=10655.066524, n/ep=100.00, n/st=19955.00, rew=-581.38, v/ep=0.22, v/st=43.45]
+Epoch #21: test_reward: -92.494008, best_reward: -92.494008 in #21
+Epoch #22:  11%|1| 110/1000 [02:16<18:27,  1.24s/it, len=34.91, loss=26822.90660
+[1]    15568 killed     python ppo_discrete.py
+

@@ -1,0 +1,11 @@
+/home/tortes/anaconda3/envs/ts/bin/python train.py \
+    --is_training True          \
+    --linear_velocity 0.5       \
+    --angular_velocity 1.0      \
+    --realsense_max_point 512    \
+    --save_path log             \
+    --lr 1e-3                   \
+    --gamma 0.99                \
+    --batch_size 8              \
+    --epoch 100                 \
+    --step-per-epoch 100

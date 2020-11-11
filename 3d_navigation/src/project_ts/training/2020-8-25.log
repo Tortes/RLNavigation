@@ -1,0 +1,34 @@
+Epoch #1:   0%|                                                             | 0/1000 [00:00<?, ?it/s]Arrived!
+Epoch #1: 1040it [52:08,  2.72s/it, len=32.50, loss=22936.078511, loss/clip=72.466760, loss/ent=0.085Epoch #1: 1040it [52:08,  2.72s/it, len=34.59, loss=28027.245835, loss/clip=104.127634, loss/ent=0.00Epoch #1: 1040it [52:08,  3.01s/it, len=34.59, loss=28027.245835, loss/clip=104.127634, loss/ent=0.000005, loss/vf=55846.236396, n/ep=100.00, n/st=3459.00, rew=-56.11, v/ep=0.42, v/st=14.40]
+Epoch #1: test_reward: -1052.836215, best_reward: -1052.836215 in #1
+Epoch #2: 1622it [1:15:01,  2.64s/it, len=59.94, loss=23730.309053, loss/clip=110.415870, loss/ent=0.Epoch #2: 1622it [1:15:01,  2.64s/it, len=616.04, loss=5994.798839, loss/clip=67.340667, loss/ent=0.0Epoch #2: 1622it [1:15:01,  2.78s/it, len=616.04, loss=5994.798839, loss/clip=67.340667, loss/ent=0.037359, loss/vf=11854.916367, n/ep=100.00, n/st=61604.00, rew=-182.83, v/ep=0.05, v/st=29.66]
+Epoch #2: test_reward: -244.953141, best_reward: -244.953141 in #2
+Epoch #3:   0%|                                                             | 0/1000 [00:00<?, ?it/s]Arrived!
+Epoch #3: 1252it [42:54,  1.91s/it, len=259.42, loss=28867.015088, loss/clip=-19.046324, loss/ent=0.0Epoch #3: 1252it [42:55,  1.91s/it, len=297.78, loss=29583.112861, loss/clip=91.597308, loss/ent=0.00Epoch #3: 1252it [42:55,  2.06s/it, len=297.78, loss=29583.112861, loss/clip=91.597308, loss/ent=0.000735, loss/vf=58983.030820, n/ep=100.00, n/st=29778.00, rew=-190.33, v/ep=0.07, v/st=21.96]
+Epoch #3: test_reward: -892.548433, best_reward: -244.953141 in #2
+Epoch #4:   0%|                                                             | 0/1000 [00:00<?, ?it/s]Arrived!
+Arrived!
+Arrived!
+Epoch #4:  63%|6| 626/1000 [1:29:09<53:16,  8.55s/it, len=1813.00, loss=8445.051172, loss/clip=24.024Arrived!
+Arrived!
+Arrived!
+Arrived!
+Arrived!
+Epoch #4: 1252it [2:56:21,  8.49s/it, len=1813.00, loss=8445.051172, loss/clip=24.024884, loss/ent=0.Epoch #4: 1252it [2:56:21,  8.49s/it, len=1801.87, loss=19184.349895, loss/clip=10.023406, loss/ent=0Epoch #4: 1252it [2:56:21,  8.45s/it, len=1801.87, loss=19184.349895, loss/clip=10.023406, loss/ent=0.198807, loss/vf=38348.653003, n/ep=100.00, n/st=180187.00, rew=-693.08, v/ep=0.02, v/st=35.67]
+Epoch #4: test_reward: -686.146920, best_reward: -244.953141 in #2
+Epoch #5:   0%|                                                             | 0/1000 [00:00<?, ?it/s]Arrived!
+Arrived!
+Arrived!
+Epoch #5: 1042it [1:37:40,  3.90s/it, len=43.62, loss=22839.661016, loss/clip=46.186448, loss/ent=0.0Epoch #5: 1042it [1:37:40,  3.90s/it, len=46.24, loss=14286.690430, loss/clip=27.523320, loss/ent=0.0Epoch #5: 1042it [1:37:40,  5.62s/it, len=46.24, loss=14286.690430, loss/clip=27.523320, loss/ent=0.000001, loss/vf=28518.334121, n/ep=100.00, n/st=4624.00, rew=-65.11, v/ep=0.48, v/st=22.35]
+Epoch #5: test_reward: -77.651510, best_reward: -77.651510 in #5
+Epoch #6: 1078it [25:46,  1.42s/it, len=49.92, loss=11033.015840, loss/clip=-54.979230, loss/ent=0.00Epoch #6: 1078it [25:46,  1.42s/it, len=52.17, loss=17357.050278, loss/clip=-65.786636, loss/ent=0.00Epoch #6: 1078it [25:46,  1.43s/it, len=52.17, loss=17357.050278, loss/clip=-65.786636, loss/ent=0.000000, loss/vf=34845.673760, n/ep=100.00, n/st=5217.00, rew=-71.50, v/ep=0.50, v/st=25.90]
+Epoch #6: test_reward: -159.269110, best_reward: -77.651510 in #5
+Epoch #7: 1032it [22:05,  1.27s/it, len=55.30, loss=12923.678098, loss/clip=-58.648674, loss/ent=0.00Epoch #7: 1032it [22:05,  1.27s/it, len=57.89, loss=13242.699846, loss/clip=-38.989882, loss/ent=0.00Epoch #7: 1032it [22:05,  1.28s/it, len=57.89, loss=13242.699846, loss/clip=-38.989882, loss/ent=0.000314, loss/vf=26563.379443, n/ep=100.00, n/st=5789.00, rew=-66.19, v/ep=0.50, v/st=29.04]
+Epoch #7: test_reward: 206.293283, best_reward: 206.293283 in #7
+Epoch #8: 1252it [1:09:55,  3.30s/it, len=697.11, loss=6009.943450, loss/clip=-59.826219, loss/ent=0.Epoch #8: 1252it [1:09:55,  3.30s/it, len=788.64, loss=4953.638160, loss/clip=25.138091, loss/ent=0.0Epoch #8: 1252it [1:09:55,  3.35s/it, len=788.64, loss=4953.638160, loss/clip=25.138091, loss/ent=0.035199, loss/vf=9857.000026, n/ep=100.00, n/st=78864.00, rew=-173.81, v/ep=0.05, v/st=37.97]
+Epoch #8: test_reward: -1511.306198, best_reward: 206.293283 in #7
+Epoch #9: 1058it [1:21:59,  4.04s/it, len=63.75, loss=13569.629412, loss/clip=-49.390824, loss/ent=0.Epoch #9: 1058it [1:21:59,  4.04s/it, len=74.14, loss=10969.935381, loss/clip=6.686757, loss/ent=0.00Epoch #9: 1058it [1:21:59,  4.65s/it, len=74.14, loss=10969.935381, loss/clip=6.686757, loss/ent=0.005690, loss/vf=21926.497207, n/ep=100.00, n/st=7414.00, rew=-99.29, v/ep=0.44, v/st=32.36]
+Epoch #9: test_reward: 764.561203, best_reward: 764.561203 in #9
+Epoch #10:  31%|3| 314/1000 [05:13<11:24,  1.00it/s, len=99.95, loss=9799.174097, loss/clip=19.218167Arrived!
+Arrived!
+Arrived!

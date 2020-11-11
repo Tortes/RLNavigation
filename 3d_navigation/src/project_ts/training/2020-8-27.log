@@ -1,0 +1,13 @@
+{'best_reward': 12770.808180154801,
+ 'duration': '73853.62s',
+ 'test_episode': 120.0,
+ 'test_speed': '24.88 step/s',
+ 'test_step': 65735,
+ 'test_time': '2642.38s',
+ 'train_episode': 3000.0,
+ 'train_speed': '19.95 step/s',
+ 'train_step': 1420826,
+ 'train_time/collector': '64577.65s',
+ 'train_time/model': '6633.58s'}
+Final reward: -160.46099871823176, length: 100.5
+

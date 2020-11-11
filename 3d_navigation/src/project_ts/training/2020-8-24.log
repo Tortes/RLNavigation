@@ -1,0 +1,17 @@
+Epoch #1: 1034it [57:12,  3.45s/it, len=31.15, loss=36840.853496, loss/clip=467.083978, loss/ent=0.37Epoch #1: 1034it [57:12,  3.45s/it, len=12.13, loss=42162.650654, loss/clip=465.244936, loss/ent=0.34Epoch #1: 1034it [57:12,  3.32s/it, len=12.13, loss=42162.650654, loss/clip=465.244936, loss/ent=0.340436, loss/vf=83394.811289, n/ep=100.00, n/st=1213.00, rew=-184.61, v/ep=0.72, v/st=8.73]
+Epoch #1: test_reward: -1339.246514, best_reward: -1339.246514 in #1
+Epoch #2: 1180it [1:10:08,  3.86s/it, len=306.99, loss=34853.440430, loss/clip=170.437715, loss/ent=0Epoch #2: 1180it [1:10:08,  3.86s/it, len=177.16, loss=62838.992227, loss/clip=146.401300, loss/ent=0Epoch #2: 1180it [1:10:08,  3.57s/it, len=177.16, loss=62838.992227, loss/clip=146.401300, loss/ent=0.100876, loss/vf=125385.181406, n/ep=100.00, n/st=17716.00, rew=-72.40, v/ep=0.08, v/st=13.66]
+Epoch #2: test_reward: 72.572708, best_reward: 72.572708 in #2
+{'best_reward': 72.57270784734825,
+ 'duration': '7919.65s',
+ 'test_episode': 16.0,
+ 'test_speed': '11.43 step/s',
+ 'test_step': 3178,
+ 'test_time': '278.04s',
+ 'train_episode': 800.0,
+ 'train_speed': '10.95 step/s',
+ 'train_step': 83686,
+ 'train_time/collector': '6760.21s',
+ 'train_time/model': '881.39s'}
+Final reward: -231.7448207922393, length: 54.054054054054056
+

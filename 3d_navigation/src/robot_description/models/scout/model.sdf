@@ -1,0 +1,576 @@
+<?xml version="1.0" ?>
+<sdf version=1.6>
+  <model name="scout">
+    <pose>0 0 0 0 0 0</pose>
+    
+    <!-- ++++++++++++++++++++++ LINK base_link & sensors ++++++++++++++++++++++ -->
+    <link name="base_footprint"/>
+
+    <link name="base_link">
+      <pose>0 0 0.48 0 0 0</pose>
+      <inertial>
+        <mass>48.0</mass>
+        <inertia>
+          <ixx>8.48</ixx>
+          <ixy>0.0</ixy>
+          <iyy>20</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>27.2</izz>
+        </inertia>
+      </inertial>
+      <visual name="base_link_visual">
+        <geometry>
+          <mesh> 
+            <uri>model://scout/meshes/model.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="base_link">
+        <geometry>
+          <box>
+            <size>2.2 1.4 0.4</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- <link name="camera_link">
+      <pose>0.7 0 0.8 0 0 0</pose>
+      <sensor type="camera" name="camera1">
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+        <camera name="head">
+          <horizontal_fov>1.3962634</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>300</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+          <cameraName>head</cameraName>
+          <triggered>true</triggered>
+        </plugin>
+      </sensor>
+    </link> -->
+
+    <!-- <link name="base_scan">
+      <pose>0 0 0.75 0 0 0</pose>
+      <visual name="visual_box">
+        <geometry>
+          <cylinder>
+            <radius>0.08</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+      </visual>
+      <collision name="collision_box">
+        <geometry>
+          <cylinder>
+            <radius>0.08</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <laser_retro>100.0</laser_retro>
+      </collision>
+
+      <sensor name="hls_lfcd_lds" type="ray">
+        <always_on>true</always_on>
+        <visualize>false</visualize>
+        <update_rate>30</update_rate>
+        <ray>
+          <scan>
+          <horizontal>
+            <samples>1875</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
+          </horizontal>
+          </scan>
+          <range>
+          <min>0.1</min>
+          <max>20.0</max>
+          <resolution>0.001</resolution>
+          </range>
+          <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.008</stddev>
+          </noise>
+        </ray>
+
+        <plugin name="robot_laserscan" filename="libgazebo_ros_ray_sensor.so">
+          <output_type>sensor_msgs/LaserScan</output_type>
+          <topicName>/scan</topicName>
+          <frameName>base_scan</frameName>
+        </plugin>
+      </sensor>
+    </link>  -->
+
+    <!-- <link name="imu_link">
+      <pose>0 0 0.35 0 0 0</pose>
+      <sensor name="imu_sensor" type="imu">
+        <always_on>true</always_on>
+        <update_rate>30</update_rate>
+        <imu>
+          <angular_velocity>
+            <x>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-4</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-4</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-4</stddev>
+              </noise>
+            </z>
+          </angular_velocity>
+          <linear_acceleration>
+            <x>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>1.7e-2</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>1.7e-2</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>1.7e-2</stddev>
+              </noise>
+            </z>
+          </linear_acceleration>
+        </imu>
+        <plugin name="robot_imu" filename="libgazebo_ros_imu_sensor.so">
+          <topicName>/imu_data</topicName>
+          <frameName>imu</frameName>
+        </plugin>
+      </sensor>
+    </link> -->
+    
+    <link name="gps_link">
+      <pose>0 0 0.5 0 0 0</pose>
+      <sensor name="my_gps" type="gps">
+        <!-- ensure the sensor is active (required) -->
+        <always_on>true</always_on>
+        <update_rate>30</update_rate>
+        <gps>
+          <position_sensing>
+            <horizontal>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-4</stddev>
+              </noise>
+            </horizontal>
+            <vertical>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-4</stddev>
+              </noise>
+            </vertical>
+          </position_sensing>
+        </gps>
+        <plugin name="scout_gps_plugin" filename="libgazebo_ros_gps_sensor.so">
+          <ros>
+            <!-- publish to /gps/fix -->
+            <namespace>/gps</namespace>
+            <argument>~/out:=fix</argument>
+          </ros>
+        </plugin>
+      </sensor>
+    </link>
+
+    <!-- ++++++++++++++++++++++ LINK steers & wheels ++++++++++++++++++++++ -->
+    <link name="front_left_wheel">
+      <pose>0.7 0.5 0.3 0 0 1.57</pose>
+      <inertial>
+        <mass>3</mass>
+        <inertia>
+          <ixx>0.195500045</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.195500045</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.195500045</izz>
+        </inertia>
+      </inertial>
+
+      <visual name="visual">
+        <pose>0.00 0.0 0.0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://prius_hybrid/meshes/Hybrid.obj</uri>
+            <scale>0.01 0.01 0.01</scale>
+            <submesh>
+              <name>Wheel_Front_Left_</name>
+              <center>true</center>
+            </submesh>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <collision name="collision">
+        <pose>0.0 0.0 0.0 0 1.5707963267948966 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.31265</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>10000</mu>
+              <mu2>7000</mu2>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <min_depth>0</min_depth>
+              <kp>1e18</kp>
+              <kd>1e4</kd>
+            </ode>
+          </contact>
+        </surface>
+
+      </collision>
+    </link>
+
+    <link name="front_right_wheel">
+      <pose>0.7 -0.5 0.3 0 0 1.57</pose>
+      <inertial>
+        <mass>3</mass>
+        <inertia>
+          <ixx>0.195500045</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.195500045</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.195500045</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual">
+        <pose>0 0.0 0.0 0 0 0</pose>
+        <pose>0 0 0.0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://prius_hybrid/meshes/Hybrid.obj</uri>
+            <scale>0.01 0.01 0.01</scale>
+            <submesh>
+              <name>Wheel_Front_Right</name>
+              <center>true</center>
+            </submesh>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <collision name="collision">
+        <pose>0.0 0.0 0.0 0 1.5707963267948966 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.31265</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <friction>odometryFrame
+            <ode>
+              <mu>10000</mu>
+              <mu2>7000</mu2>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <min_depth>0</min_depth>
+              <kp>1e18</kp>
+              <kd>1e4</kd>
+            </ode>
+          </contact>
+        </surface>
+
+      </collision>
+    </link>
+
+    <link name="rear_left_wheel">
+      <pose>-0.7 0.5 0.3 0 0 1.57</pose>
+      <inertial>
+        <mass>3</mass>
+        <inertia>
+          <ixx>0.195500045</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.195500045</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.195500045</izz>
+        </inertia>
+      </inertial>
+
+      <visual name="visual">
+        <pose>0 0.0 0.0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://prius_hybrid/meshes/Hybrid.obj</uri>
+            <scale>0.01 0.01 0.01</scale>
+            <submesh>
+              <name>Wheel_Front_Left_</name>
+              <center>true</center>
+            </submesh>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <collision name="collision">
+        <pose>0.0 0.0 0.0 0 1.5707963267948966 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.31265</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>10000</mu>
+              <mu2>7000</mu2>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <min_depth>0</min_depth>
+              <kp>1e18</kp>
+              <kd>1e4</kd>
+            </ode>
+          </contact>
+        </surface>
+
+      </collision>
+    </link>
+
+    <link name="rear_right_wheel">
+      <pose>-0.7 -0.5 0.3 0 0 1.57</pose>
+      <inertial>
+        <mass>3</mass>
+        <inertia>
+          <ixx>0.195500045</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.195500045</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.195500045</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual">
+        <pose>0 0.0 0.0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://prius_hybrid/meshes/Hybrid.obj</uri>
+            <scale>0.01 0.01 0.01</scale>
+            <submesh>
+              <name>Wheel_Front_Right</name>
+              <center>true</center>
+            </submesh>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <collision name="collision">
+        <pose>0.0 0.0 0.0 0 1.5707963267948966 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.31265</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>10000</mu>
+              <mu2>7000</mu2>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <min_depth>0</min_depth>
+              <kp>1e18</kp>
+              <kd>1e4</kd>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <!-- ++++++++++++++++++++++ JOINT ++++++++++++++++++++++ -->
+    <joint name="base_joint" type="fixed">
+      <parent>base_footprint</parent>
+      <child>base_link</child>
+      <pose>0.0 0.0 0.0 0 0 0</pose>
+    </joint>
+
+    <joint name="front_left_wheel_joint" type="revolute">
+      <child>front_left_wheel</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <dynamics>
+          <friction>1</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <joint name="front_right_wheel_joint" type="revolute">
+      <child>front_right_wheel</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <dynamics>
+          <friction>1</friction>
+        </dynamics>
+      </axis>
+    </joint>
+  
+    <joint name="rear_left_wheel_joint" type="revolute">
+      <child>rear_left_wheel</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <dynamics>
+          <friction>1</friction>
+        </dynamics>
+      </axis>
+    </joint>
+  
+    <joint name="rear_right_wheel_joint" type="revolute">
+      <child>rear_right_wheel</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <dynamics>
+          <friction>1</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- <joint name="camera_joint" type="fixed">
+      <child>camera_link</child>
+      <parent>base_link</parent>
+    </joint> -->
+
+    <joint name="lidar_joint" type="fixed">
+      <child>base_scan</child>
+      <parent>base_link</parent>
+    </joint>
+
+    <joint name="imu_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>imu_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <joint name="gps_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>gps_link</child>
+    </joint>
+
+    <!-- ++++++++++++++++++++++ PLUGIN ++++++++++++++++++++++ -->
+    <plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'>
+
+      <ros>
+        <!-- <namespace>/scout</namespace> -->
+        <argument>cmd_vel:=cmd_vel</argument>
+        <argument>odom:=/odometry/wheel</argument>
+      </ros>
+
+      <commandTopic>/cmd_vel</commandTopic>
+      <odometryTopic>/odom</odometryTopic>
+
+      <legacyMode>false</legacyMode>
+
+      <!-- <update_rate>30.0</update_rate> -->
+      <updateRate>30.0</updateRate>
+
+      <num_wheel_pairs>2</num_wheel_pairs>
+      
+      <!-- front wheels -->
+      <!-- <left_joint>front_left_wheel_joint</left_joint> -->
+      <leftJoint>front_left_wheel_joint</leftJoint>
+      <!-- <right_joint>front_right_wheel_joint</right_joint> -->
+      <rightJoint>front_right_wheel_joint</rightJoint>
+
+      <!-- rear wheels -->
+      <!-- <left_joint>rear_left_wheel_joint</left_joint> -->
+      <leftJoint>rear_left_wheel_joint</leftJoint>
+      <!-- <right_joint>rear_right_wheel_joint</right_joint> -->
+      <rightJoint>rear_right_wheel_joint</rightJoint>
+
+      <!-- kinematics -->
+      <!-- <wheel_separation>1.0</wheel_separation> -->
+      <wheelSeparation>1.0</wheelSeparation>
+      <!-- <wheel_separation>1.0</wheel_separation> -->
+      <!-- <wheel_diameter>0.6253</wheel_diameter> -->
+      <wheelDiameter>0.6253</wheelDiameter>
+      <!-- <wheel_diameter>0.6253</wheel_diameter> -->
+
+      <!-- limits -->
+      <!-- <max_wheel_torque>1000</max_wheel_torque> -->
+      <!-- <max_wheel_acceleration>1.0</max_wheel_acceleration> -->
+      <wheelTorque>1000</wheelTorque>
+      <wheelAcceleration>1.0</wheelAcceleration>
+
+      <!-- output -->
+      <publish_odom>true</publish_odom>
+      <!-- <publish_odom_tf>false</publish_odom_tf> -->
+      <publishOdomTF>false</publishOdomTF>
+      <!-- <publish_wheel_tf>true</publish_wheel_tf> -->
+      <publishWheelTF>true</publishWheelTF>
+
+      <!-- <odometry_frame>odom</odometry_frame> -->
+      <odometryFrame>odom</odometryFrame>
+      <!-- <robot_base_frame>base_link</robot_base_frame> -->
+      <robotBaseFrame>base_link</robotBaseFrame>
+
+    </plugin>
+
+    <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+      <ros>
+        <argument>~/out:=joint_states</argument>
+      </ros>
+      <!-- <update_rate>30</update_rate> -->
+      <updateRate>30</updateRate>
+      <joint_name>front_left_wheel_joint</joint_name>
+      <joint_name>front_right_wheel_joint</joint_name>
+      <joint_name>rear_left_wheel_joint</joint_name>
+      <joint_name>rear_right_wheel_joint</joint_name>
+    </plugin>      
+
+  </model>
+</sdf>

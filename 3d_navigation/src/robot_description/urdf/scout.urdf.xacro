@@ -1,0 +1,179 @@
+<?xml version="1.0" ?>
+<robot name="scout" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <material name="light_black">
+    <color rgba="0.4 0.4 0.4 1.0"/>
+  </material>
+
+  <!-- ++++++++++++++++++++++ LINK base_link & sensors ++++++++++++++++++++++ -->
+  <link name="base_footprint"/>
+  
+  <link name="base_link">
+    <visual>
+      <origin xyz="0.0 0 0.48" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://robot_description/models/scout/meshes/model.dae"/>
+      </geometry>
+    </visual>
+  </link>
+  
+  <link name="camera_link" />
+
+  <link name="base_scan">
+    <visual>
+      <geometry>
+        <cylinder radius="0.08" length="0.08"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.08" length="0.08"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="imu_link" />
+
+  <link name="gps_link" />
+  
+  <!-- ++++++++++++++++++++++ LINK steers & wheels ++++++++++++++++++++++ -->
+  <link name="front_left_wheel">
+    <inertial>
+      <mass value="11.0"/>
+      <inertia ixx="0.58631238" ixy="0.0" ixz="0.0" iyy="0.33552910" iyz="0.0" izz="0.33552910"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <mesh filename="package://robot_description/models/scout/meshes/wheel.dae"/>
+      </geometry>
+      <material name="light_black"/>
+    </visual>
+
+    <collision>
+      <geometry>
+        <mesh filename="package://robot_description/models/scout/meshes/wheel.dae"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="front_right_wheel">
+    <inertial>
+      <mass value="11.0"/>
+      <inertia ixx="0.58631238" ixy="0.0" ixz="0.0" iyy="0.33552910" iyz="0.0" izz="0.33552910"/>
+    </inertial>
+
+    <visual>
+      <!-- <origin xyz="0 0 0.0" rpy="0.0 0.0 1.57"/> -->
+      <geometry>
+        <mesh filename="package://robot_description/models/scout/meshes/wheel.dae"/>
+      </geometry>
+      <material name="light_black"/>
+    </visual>
+
+    <collision>
+      <geometry>
+        <mesh filename="package://robot_description/models/scout/meshes/wheel.dae"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rear_left_wheel">
+    <inertial>
+      <mass value="11.0"/>
+      <inertia ixx="0.58631238" ixy="0.0" ixz="0.0" iyy="0.33552910" iyz="0.0" izz="0.33552910"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <mesh filename="package://robot_description/models/scout/meshes/wheel.dae"/>
+      </geometry>
+      <material name="light_black"/>
+    </visual>
+
+    <collision>
+      <geometry>
+        <mesh filename="package://robot_description/models/scout/meshes/wheel.dae"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rear_right_wheel">
+    <inertial>
+      <mass value="11.0"/>
+      <inertia ixx="0.58631238" ixy="0.0" ixz="0.0" iyy="0.33552910" iyz="0.0" izz="0.33552910"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <mesh filename="package://robot_description/models/scout/meshes/wheel.dae"/>
+      </geometry>
+      <material name="light_black"/>
+    </visual>
+
+    <collision>
+      <geometry>
+        <mesh filename="package://robot_description/models/scout/meshes/wheel.dae"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ++++++++++++++++++++++ JOINT ++++++++++++++++++++++ -->
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="front_left_combined_joint" type="continuous">
+    <origin xyz="0.7 0.5 0.3" rpy="0.0 0 1.57"/>
+    <parent link="base_link"/>
+    <child link="front_left_wheel"/>
+    <axis xyz="1 0 0"/>
+  </joint> 
+
+  <joint name="front_right_combined_joint" type="continuous">
+    <origin xyz="0.7 -0.5 0.3" rpy="0.0 0 1.57"/>
+    <parent link="base_link"/>
+    <child link="front_right_wheel"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+
+  <joint name="rear_left_wheel_joint" type="continuous">
+    <origin xyz="-0.7 0.5 0.3" rpy="0.0 0 1.57"/>
+    <parent link="base_link"/>
+    <child link="rear_left_wheel"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+
+  <joint name="rear_right_wheel_joint" type="continuous">
+    <origin xyz="-0.7 -0.5 0.3" rpy="0.0 0 1.57"/>
+    <parent link="base_link"/>
+    <child link="rear_right_wheel"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+  
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0.7 0 0.8" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="camera_link" />
+  </joint>
+
+  <joint name="lidar_joint" type="fixed">
+    <origin xyz="0.0 0 0.75" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="base_scan"/>
+  </joint>
+
+  <joint name="imu_joint" type="fixed">
+    <origin xyz="0.0 0 0.35" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+  </joint>
+
+  <joint name="gps_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.5" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="gps_link"/>
+  </joint>
+
+</robot>
